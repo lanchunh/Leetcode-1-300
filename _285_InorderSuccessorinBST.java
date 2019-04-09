@@ -39,11 +39,11 @@ public class _285_InorderSuccessorinBST {
     }
 
     public TreeNode successor(TreeNode root, TreeNode p) {
-        if (root == null) return null;
-        if (root.val <= p.val) {
+        if (root == null) return null;//终止条件
+        if (root.val <= p.val) {//1相等 看有没有右树，有往右走，没有返回null
             return successor(root.right, p);
         } else {
-            TreeNode temp = successor(root.left, p);
+            TreeNode temp = successor(root.left, p);//2->1 相等，没有右树，返回null。返回上一层
             return (temp != null) ? temp : root;
         }
     }
