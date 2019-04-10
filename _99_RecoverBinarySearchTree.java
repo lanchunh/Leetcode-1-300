@@ -46,8 +46,9 @@ public class _99_RecoverBinarySearchTree {
     }
     public void helper(TreeNode root) {
         if (root == null) return;
-        helper(root.left);
-        if (prev != null && prev.val >= root.val) {
+        helper(root.left);//0 从root 返回上层之后变为root.left
+        if (prev != null && prev.val >= root.val) {//helper（left）和helper（right）中间是08235按中序遍历从小到大的顺序，每个点执行的
+            //pre =0 root =8; 
             if (first == null) first = prev;
             second = root;
         }
